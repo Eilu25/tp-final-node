@@ -1,0 +1,38 @@
+<section class="page-head">
+  <h1>{{titulo}}</h1>
+  <div class="page-actions">
+    <a class="btn" href="/productos/admin">Administración</a>
+  </div>
+</section>
+
+<div class="filterbar">
+  <input id="q" type="search" placeholder="Buscar producto..." oninput="filterCards()">
+</div>
+
+{{#if productos.length}}
+  <div id="cards" class="cards">
+    {{#each productos}}
+      <div class="card" data-name="{{nombre}}">
+        <img class="card-img" src="{{imgFor nombre imagen}}" alt="{{nombre}}">
+        <div class="card-body">
+          <h4>{{nombre}}</h4>
+          <p class="price">{{currency precio}}</p>
+          <p class="stock">Stock: {{stock}}</p>
+          <a class="btn btn--sm" href="/contacto">Consultar</a>
+        </div>
+      </div>
+    {{/each}}
+  </div>
+{{else}}
+  <p>No hay productos cargados.</p>
+{{/if}}
+
+<script>
+  function filterCards() {
+    const q = document.getElementById('q').value.trim().toLowerCase();
+    document.querySelectorAll('#cards .card').forEach(card => {
+      const name = card.dataset.name.toLowerCase();
+      card.style.display = name.includes(q) ? '' : 'none';
+    });
+  }
+</script>

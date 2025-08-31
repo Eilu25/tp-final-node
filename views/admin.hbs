@@ -1,0 +1,31 @@
+<h1>Administración de Productos</h1>
+
+<table>
+  <thead>
+    <tr><th>ID</th><th>Nombre</th><th>Precio</th><th>Stock</th><th>Acciones</th></tr>
+  </thead>
+  <tbody>
+  {{#each productos}}
+    <tr>
+      <td>{{id}}</td>
+      <td>{{nombre}}</td>
+      <td>${{precio}}</td>
+      <td>{{stock}}</td>
+      <td class="actions">
+        <a class="btn" href="/productos/editar/{{id}}">Editar</a>
+        <form method="POST" action="/productos/eliminar/{{id}}?_method=DELETE" onsubmit="return confirm('¿Eliminar?')">
+          <button class="btn danger" type="submit">Eliminar</button>
+        </form>
+      </td>
+    </tr>
+  {{/each}}
+  </tbody>
+</table>
+
+<h2>Agregar nuevo producto</h2>
+<form method="POST" action="/productos">
+  <label>Nombre <input name="nombre" required></label>
+  <label>Precio <input name="precio" type="number" step="0.01" min="0" required></label>
+  <label>Stock <input name="stock" type="number" min="0" required></label>
+  <button class="btn" type="submit">Agregar</button>
+</form>

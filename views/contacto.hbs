@@ -1,0 +1,25 @@
+<h1>Contacto</h1>
+
+{{#if ok}}<p class="ok">✅ Mensaje enviado. Revisá Mailtrap.</p>{{/if}}
+{{#if error}}<p class="error">❌ {{error}}</p>{{/if}}
+
+<div class="cards" style="grid-template-columns:1.1fr .9fr">
+  <div class="card">
+    <div class="card-body">
+      <form method="post" action="/contacto">
+        <label>Nombre <input name="nombre" required></label>
+        <label>Email <input type="email" name="email" required></label>
+        <label>Mensaje <textarea name="mensaje" rows="5" required></textarea></label>
+        <button class="btn" type="submit">Enviar</button>
+      </form>
+    </div>
+  </div>
+  <div class="card">
+    <img class="card-img" src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1200&auto=format&fit=crop" alt="Soporte">
+    <div class="card-body">
+      <h4>Estamos para ayudarte</h4>
+      <p class="stock">Respondemos en menos de 24 hs.</p>
+      <p class="stock">Lunes a viernes, 9 a 18 h.</p>
+    </div>
+  </div>
+</div>

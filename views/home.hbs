@@ -1,0 +1,83 @@
+<section class="hero">
+  <div class="hero__text">
+    <h1>Soluciones simples para tu negocio</h1>
+    <p>En {{brand}} acercamos tecnología accesible y confiable para PYMEs y
+       profesionales. Te asesoramos y te acompañamos post-venta.</p>
+    <div class="hero__cta">
+      <a class="btn" href="/productos">Ver productos</a>
+      <a class="btn btn--ghost" href="/contacto">Contacto</a>
+    </div>
+  </div>
+
+  <picture class="hero__img">
+    <img
+      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxE8h0bHI_pNq9wLfPEEM8Juh0xuYkwNpOup0BKmz6XTvNsIk_GA6HsHx5TnGevnG7fKY&usqp=CAU"
+      alt="Setup tecnológico"
+    >
+  </picture>
+</section>
+
+<section class="about">
+  <div class="about__col">
+    <h2>¿Quiénes somos?</h2>
+    <p>
+      Somos un equipo en Argentina con más de 10 años equipando oficinas, comercios
+      y home office. Trabajamos con garantía oficial y soporte directo.
+    </p>
+    <ul class="checklist">
+      <li>Entrega en 24/48 hs (AMBA)</li>
+      <li>Repuestos y garantía oficial</li>
+      <li>Precios mayoristas para PYMEs</li>
+    </ul>
+  </div>
+  <div class="about__col">
+    <img class="card-img"
+      src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1400&auto=format&fit=crop"
+      alt="Equipo de trabajo">
+  </div>
+</section>
+
+<section class="features">
+  <article class="feature">
+    <h3>Atención humana</h3>
+    <p>Te asesoramos por WhatsApp y seguimos tu caso end-to-end.</p>
+  </article>
+  <article class="feature">
+    <h3>Pagá como quieras</h3>
+    <p>Tarjeta, transferencia y cuentas corporativas.</p>
+  </article>
+  <article class="feature">
+    <h3>Envíos a todo el país</h3>
+    <p>Con seguimiento y seguro.</p>
+  </article>
+</section>
+
+<section>
+  <h2>Productos destacados</h2>
+
+  {{#if destacados.length}}
+    <div class="cards">
+      {{#each destacados}}
+        <div class="card">
+          <img class="card-img" src="{{imgFor nombre imagen}}" alt="{{nombre}}">
+          <div class="card-body">
+            <h4>{{nombre}}</h4>
+            <p class="price">{{currency precio}}</p>
+            <p class="stock">Stock: {{stock}}</p>
+            <a class="btn btn--sm" href="/productos">Ver más</a>
+          </div>
+        </div>
+      {{/each}}
+    </div>
+  {{else}}
+    <p>No hay destacados todavía.</p>
+  {{/if}}
+</section>
+
+<section class="cta">
+  <div class="cta__box">
+    <h3>¿Necesitás una cotización para tu empresa?</h3>
+    <p>Escribinos y armamos un presupuesto a medida en menos de 24 hs.</p>
+    <a class="btn" href="/contacto">Pedir cotización</a>
+  </div>
+</section>
